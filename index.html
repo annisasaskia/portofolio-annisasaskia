@@ -177,7 +177,23 @@ Portfolio · HTML
     .proj-pane.active{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;align-items:stretch}
  
     .proj-card{background:var(--white);border:2px solid var(--black);border-radius:24px;overflow:hidden;box-shadow:6px 6px 0px 0px rgba(0,0,0,1);display:flex;flex-direction:column;height:100%}
-    .proj-thumb{height:140px;background:var(--zinc-100);border-bottom:2px solid var(--black);display:flex;align-items:center;justify-content:center;font-size:3rem;flex-shrink:0}
+    .proj-thumb{
+      height: 140px;
+      background: var(--zinc-100);
+      border-bottom: 2px solid var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      flex-shrink: 0;
+      overflow: hidden; /* Mencegah gambar meluap keluar dari kotak 140px */
+    }
+    .proj-thumb .thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Gambar akan terisi penuh & ter-crop rapi tanpa merusak rasio */
+      display: block;
+    }
     .proj-body{padding:1.5rem;display:flex;flex-direction:column;flex:1}
  
     .proj-title{
@@ -698,7 +714,9 @@ Portfolio · HTML
       <!-- WEB PANE -->
       <div class="proj-pane active" id="pane-web">
         <div class="proj-card">
-          <div class="proj-thumb">🚁</div>
+          <div class="proj-thumb">
+            <img src="skydc2.png" alt="SkyDC" class="thumb-img">
+          </div>
           <div class="proj-body">
             <h3 class="proj-title">SkyDC – Drone Delivery Dashboard</h3>
             <div class="proj-desc-wrap" id="desc-web-1" onclick="openDescModal('SkyDC – Drone Delivery Dashboard','desc-web-1')">
@@ -709,7 +727,9 @@ Portfolio · HTML
           </div>
         </div>
         <div class="proj-card">
-          <div class="proj-thumb">🧒</div>
+          <div class="proj-thumb">
+            <img src="adastudy.png" alt="ADA Study" class="thumb-img">
+          </div>
           <div class="proj-body">
             <h3 class="proj-title">ADA – Interactive Learning for Kids</h3>
             <div class="proj-desc-wrap" id="desc-web-2" onclick="openDescModal('ADA – Interactive Learning for Kids','desc-web-2')">
@@ -724,7 +744,9 @@ Portfolio · HTML
           </div>
         </div>
         <div class="proj-card">
-          <div class="proj-thumb">🌸</div>
+          <div class="proj-thumb">
+            <img src="flowers.png" alt="Florist" class="thumb-img">
+          </div>
           <div class="proj-body">
             <h3 class="proj-title">Online Flower Shop E-Commerce</h3>
             <div class="proj-desc-wrap" id="desc-web-3" onclick="openDescModal('Online Flower Shop E-Commerce','desc-web-3')">
